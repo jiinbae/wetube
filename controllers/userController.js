@@ -1,10 +1,11 @@
 import routes from "../routes";
+import User from "../models/User";
 
 export const getJoin = (req, res) => {
    res.render("join", { pageTitle: "Join" });
 };
  
-export const postJoin = (req, res) => {
+export const postJoin = async (req, res) => {
    const {
      body: { name, email, password, password2 }
    } = req;
@@ -12,6 +13,7 @@ export const postJoin = (req, res) => {
      res.status(400);
      res.render("join", { pageTitle: "Join" });
    } else {
+     const user = await User.create();
      res.redirect(routes.home);
    }
 };
@@ -25,6 +27,7 @@ export const postLogin = (req, res) => {
 export const logout = (req, res) => {
   res.redirect(routes.home);
 };
+
 export const userDetail = (req, res) =>
   res.render("userDetail", { pageTitle: "User Detail" });
 export const editProfile = (req, res) =>
