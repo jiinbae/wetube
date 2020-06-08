@@ -1,5 +1,5 @@
-import routes from "../routes";
-import Video from "../models/Video";
+import routes from "../routes.js";
+import Video from "../models/Video.js";
 
 export const home = async(req, res) => {
   try{
@@ -42,6 +42,7 @@ export const postUpload = async(req, res) => {
   console.log(newVideo);
   res.redirect(routes.videoDetail(newVideo.id));
 };
+
 export const videoDetail = async(req, res) => {
   const {
     params: {id} 
@@ -51,6 +52,18 @@ export const videoDetail = async(req, res) => {
   console.log(video);
   res.render("videoDetail", { pageTitle: video.title, video });
   } catch(error){
+    res.redirect(routes.home);
+  }
+};
+
+export const getEditVideo = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+  } catch (error) {
     res.redirect(routes.home);
   }
 };
@@ -67,9 +80,6 @@ export const postEditVideo = async (req, res) => {
      res.redirect(routes.home);
    }
  };
-
-export const deleteVideo = (req, res) =>
-  res.render("deleteVideo", { pageTitle: "Delete Video" });
 
  export const deleteVideo = async (req, res) => {
   const {

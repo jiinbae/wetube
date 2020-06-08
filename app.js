@@ -3,11 +3,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import { localMiddleware } from "./middlewares";
-import routes from "./routes";
-import userRouter from "./routers/userRouter";
-import videoRouter from "./routers/videoRouter";
-import globalRouter from "./routers/globalRouter";
+import { localMiddleware } from "./middlewares.js";
+import routes from "./routes.js";
+import userRouter from "./routers/userRouter.js";
+import videoRouter from "./routers/videoRouter.js";
+import globalRouter from "./routers/globalRouter.js";
 
 const app = express();
 

@@ -1,4 +1,4 @@
-import routes from "../routes";
+import routes from "../routes.js";
 
 export const getJoin = (req, res) => {
    res.render("join", { pageTitle: "Join" });
