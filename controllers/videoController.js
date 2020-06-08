@@ -2,7 +2,7 @@ import routes from "../routes.js";
 import Video from "../models/Video.js";
 
 export const home = async(req, res) => {
-  try{
+  try {
     const videos = await Video.find({}).sort({ _id: -1 });
     res.render("home", { pageTitle: "Home", videos });
   } catch(error) {
@@ -39,7 +39,6 @@ export const postUpload = async(req, res) => {
     title,
     description
   });
-  console.log(newVideo);
   res.redirect(routes.videoDetail(newVideo.id));
 };
 
@@ -49,7 +48,6 @@ export const videoDetail = async(req, res) => {
   } = req;
   try{
   const video = await Video.findById(id);
-  console.log(video);
   res.render("videoDetail", { pageTitle: video.title, video });
   } catch(error){
     res.redirect(routes.home);
