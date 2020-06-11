@@ -15,7 +15,6 @@ import {
     postFacebookLogin
   } from "../controllers/userController.js";
 import { onlyPrivate, onlyPublic } from "../middlewares.js";
-import passport from "passport";
 
 const globalRouter = express.Router();
 

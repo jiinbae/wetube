@@ -1,10 +1,13 @@
 import passport from "passport";
 import GithubStrategy from "passport-github";
+import FacebookStrategy from "passport-facebook";
+import KakaoStrategy from "passport-kakao";
 import User from "./models/User.js";
 import {
     githubLoginCallback,
     facebookLoginCallback
 } from "./controllers/userController.js";
+import routes from "./routes.js";
 
 passport.use(User.createStrategy());
 
@@ -23,14 +26,30 @@ passport.use(
       {
         clientID: process.env.FB_ID,
         clientSecret: process.env.FB_SECRET,
-        callbackURL: `https://~~~.localtunnel.me${
-            routes.facebookCallback
-          }`,
-          profileFields: ["id", "displayName", "photos", "email"],
-          scope: ["public_profile", "email"]      },
+        callbackURL: `https://ff9d7e597ee3.ngrok.io${routes.facebookCallback}`,
+        profileFields: ["id", "displayName", "photos", "email"],
+        scope: ["public_profile", "email"]},
       facebookLoginCallback
     )
 );
+
+
+/* passport.use(
+    new KakaoStrategy(
+    {
+      clientID : process.env.KAKAO_ID,
+      clientSecret: process.env.KAKAO_SECRET,
+      callbackURL : callbackURL
+  },
+  function(accessToken, refreshToken, profile, done){
+    // 사용자의 정보는 profile에 들어있다.
+    User.findOrCreate(..., function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
+    });
+  }
+));
+*/
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

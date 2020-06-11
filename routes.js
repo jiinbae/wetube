@@ -68,7 +68,9 @@ const routes = {
       githubCallback: GITHUB_CALLBACK,
       me: ME,
       facebook: FB,
-      facebookCallback: FB_CALLBACK
+      facebookCallback: FB_CALLBACK,
+      /* kakaotalk: KT,
+      kakaotalkCallback: KT_CALLBACK */
 };
 
 export default routes;
