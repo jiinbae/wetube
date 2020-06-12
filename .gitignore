@@ -80,3 +80,7 @@ package-lock.json
 uploads
 
 static
+
+node_modules
+
+.DS_Store
