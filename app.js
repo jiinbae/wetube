@@ -7,11 +7,11 @@ import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import { localMiddleware } from "./middlewares.js";
-import routes from "./routes.js";
-import userRouter from "./routers/userRouter.js";
-import videoRouter from "./routers/videoRouter.js";
-import globalRouter from "./routers/globalRouter.js";
+import { localMiddleware } from "./middlewares";
+import routes from "./routes";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
+import globalRouter from "./routers/globalRouter";
 
 import "./passport";
 
