@@ -84,3 +84,5 @@ static
 node_modules/dotenv
 
 .DS_Store
+
+.env
