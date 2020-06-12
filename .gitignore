@@ -81,6 +81,8 @@ uploads
 
 static
 
+dotenv
+
 node_modules
 
 .DS_Store
