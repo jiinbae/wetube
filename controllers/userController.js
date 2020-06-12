@@ -65,9 +65,7 @@ export const postGithubLogIn = (req, res) => {
 export const facebookLogin = passport.authenticate("facebook");
 
 export const facebookLoginCallback = async (_, __, profile, cb) => {
-  const {
-    _json: { id, name, email }
-  } = profile;
+  const { _json: { id, name, email }} = profile;
   try {
     const user = await User.findOne({ email });
     if (user) {
@@ -92,14 +90,10 @@ export const postFacebookLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
-/* export const kakaoLogin = passport.authenticate('kakao');
-
-export const postGithubLogIn = (req, res) => {
-  res.redirect(routes.home);
-}
+export const kakaoLogin = passport.authenticate('kakao');
 
 export const kakaoLoginCallback = async (_, __, profile, cb) => {
-  const { _json: {id, avata_url: avatarUrl, name, email}} = profile;
+  const { _json: {id, name, email}} = profile;
   try {
     const user = await User.findOne({email})
     if(user){
@@ -110,7 +104,7 @@ export const kakaoLoginCallback = async (_, __, profile, cb) => {
     const newUser = await User.create({
       email,
       name,
-      githubId: id,
+      kakaoId: id,
       avatarUrl
     });
     return cb(null, newUser);
@@ -118,8 +112,10 @@ export const kakaoLoginCallback = async (_, __, profile, cb) => {
       return cb(error);
   }
 };
-*/
 
+export const postkakaoLogIn = (req, res) => {
+  res.redirect(routes.home);
+}
 
 export const logout = (req, res) => {
   req.logout();
