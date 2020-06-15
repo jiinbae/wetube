@@ -6,6 +6,7 @@ export const getJoin = (req, res) => {
   res.render("join", { pageTitle: "Join" });
 };
  
+<<<<<<< HEAD
 export const postJoin = async (req, res, next) => {
   const {
     body: { name, email, password, password2 }
@@ -26,6 +27,19 @@ export const postJoin = async (req, res, next) => {
       res.redirect(routes.home);
     }
   }
+=======
+export const postJoin = async (req, res) => {
+   const {
+     body: { name, email, password, password2 }
+   } = req;
+   if (password !== password2) {
+     res.status(400);
+     res.render("join", { pageTitle: "Join" });
+   } else {
+     const user = await User.create();
+     res.redirect(routes.home);
+   }
+>>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
 };
 
 export const getLogin = (req,res) =>
@@ -127,6 +141,7 @@ export const logout = (req, res) => {
   res.redirect(routes.home);
 };
 
+<<<<<<< HEAD
 export const getMe = (req, res) => {
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
 };
@@ -144,6 +159,11 @@ export const userDetail = async (req, res) => {
   }
 };
 export const getEditProfile = (req, res) =>
+=======
+export const userDetail = (req, res) =>
+  res.render("userDetail", { pageTitle: "User Detail" });
+export const editProfile = (req, res) =>
+>>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
   res.render("editProfile", { pageTitle: "Edit Profile" });
 
 export const postEditProfile = async (req, res) => {

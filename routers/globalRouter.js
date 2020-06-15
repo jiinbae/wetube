@@ -28,6 +28,7 @@ globalRouter.post(routes.login, onlyPublic, postLogin);
 
 globalRouter.get(routes.home, home);
 globalRouter.get(routes.search, search);
+<<<<<<< HEAD
 globalRouter.get(routes.logout, onlyPrivate, logout);
 
 globalRouter.get(routes.github, githubLogin);
@@ -52,5 +53,8 @@ globalRouter.get(
   passport.authenticate('kakao', {failureRedirect: '/login'}),
   postkakaoLogIn
 );
+=======
+globalRouter.get(routes.logout, logout);
+>>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
 
 export default globalRouter;

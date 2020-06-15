@@ -1,4 +1,5 @@
 import passport from "passport";
+<<<<<<< HEAD
 import GithubStrategy from "passport-github";
 import FacebookStrategy from "passport-facebook";
 import KakaoStrategy from "passport-kakao";
@@ -46,5 +47,11 @@ passport.use(
     )
 );
 
+=======
+import User from "./models/User";
+
+passport.use(User.createStrategy());
+
+>>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
