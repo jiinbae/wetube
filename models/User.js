@@ -16,10 +16,10 @@ const UserSchema = new mongoose.Schema({
   ],
   videos: [
     {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Video"
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Video"
     }
-]
+  ]
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: "email" });

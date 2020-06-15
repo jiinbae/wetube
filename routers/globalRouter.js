@@ -15,8 +15,8 @@ import {
     postFacebookLogin,
     kakaoLogin,
     postkakaoLogIn
-  } from "../controllers/userController.js";
-import { onlyPrivate, onlyPublic } from "../middlewares.js";
+  } from "../controllers/userController";
+import { onlyPrivate, onlyPublic } from "../middlewares";
 
 const globalRouter = express.Router();
 
