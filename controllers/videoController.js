@@ -14,7 +14,6 @@ export const home = async(req, res) => {
 export const search = async (req, res) => {
   const {
     query: { term: searchingBy }
-<<<<<<< HEAD
   } = req;
   let videos = [];
   try {
@@ -25,18 +24,6 @@ export const search = async (req, res) => {
     console.log(error);
   }
   res.render("search", { pageTitle: "Search", searchingBy, videos });
-=======
-    } = req;
-    let videos = [];
-  try {
-     videos = await Video.find({
-       title: { $regex: searchingBy, $options: "i" }
-     });
-   } catch (error) {
-     console.log(error);
-   }
-   res.render("search", { pageTitle: "Search", searchingBy, videos });
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
 };
  
 export const getUpload = (req, res) =>
@@ -53,30 +40,18 @@ export const postUpload = async (req, res) => {
     description,
     creator: req.user.id
   });
-<<<<<<< HEAD
   req.user.videos.push(newVideo.id);
   req.user.save();
   res.redirect(routes.videoDetail(newVideo.id));
 };
 
 export const videoDetail = async (req, res) => {
-=======
-  res.redirect(routes.videoDetail(newVideo.id));
-};
-
-export const videoDetail = async(req, res) => {
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
   const {
     params: { id } 
   } = req;
   try {
-<<<<<<< HEAD
   const video = await (await Video.findById(id)).populate('creator');
   res.render("videoDetail", { pageTitle: video.title, video });
-=======
-    const video = await Video.findById(id);
-    res.render("videoDetail", { pageTitle: video.title, video });
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
   } catch (error) {
     res.redirect(routes.home);
   }
@@ -88,15 +63,11 @@ export const getEditVideo = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id);
-<<<<<<< HEAD
     if (video.creator !== req.user.id) {
       throw Error();
     } else {
     res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
     }
-=======
-    res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
   } catch (error) {
     res.redirect(routes.home);
   }

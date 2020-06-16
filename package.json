@@ -12,14 +12,9 @@
         "@babel/preset-env": "^7.10.2",
         "autoprefixer": "^9.8.0",
         "babel-loader": "^8.1.0",
-<<<<<<< HEAD
         "body-parser": "^1.19.0",
         "connect-mongo": "^3.2.0",
         "cookie-parser": "^1.4.5",
-=======
-        "body-parser": "^1.18.3",
-        "cookie-parser": "^1.4.3",
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
         "css-loader": "^3.5.3",
         "dotenv": "^8.2.0",
         "eslint-cli": "^1.1.1",
@@ -34,7 +29,6 @@
         "ngrok": "^3.2.7",
         "node-sass": "^4.14.1",
         "passport": "^0.4.1",
-<<<<<<< HEAD
         "passport-facebook": "^3.0.0",
         "passport-github": "^1.1.0",
         "passport-kakao": "^1.0.0",
@@ -42,12 +36,6 @@
         "passport-local-mongoose": "^6.0.1",
         "postcss-loader": "^3.0.0",
         "pug": "^3.0.0",
-=======
-        "passport-local": "^1.0.0",
-        "passport-local-mongoose": "^6.0.1",
-        "postcss-loader": "^3.0.0",
-        "pug": "^2.0.3",
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
         "sass-loader": "^8.0.2",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11"
