@@ -28,6 +28,9 @@ const FB_CALLBACK = "/auth/facebook/callback";
 const KT = "/auth/kakaotalk";
 const KT_CALLBACK = "/oauth";
 
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+
 const routes = {
     home: HOME,
     join: JOIN,
@@ -73,7 +76,9 @@ const routes = {
       facebook: FB,
       facebookCallback: FB_CALLBACK,
       kakaotalk: KT,
-      kakaotalkCallback: KT_CALLBACK
+      kakaotalkCallback: KT_CALLBACK,
+      api: API,
+      registerView: REGISTER_VIEW
 };
 
 export default routes;

@@ -105,7 +105,6 @@ export const getEditVideo = async (req, res) => {
 export const postEditVideo = async (req, res) => {
   const {
     params: { id },
-<<<<<<< HEAD
     body: { title, description }
   } = req;
   try {
@@ -116,20 +115,23 @@ export const postEditVideo = async (req, res) => {
   }
 };
 
-export const deleteVideo = async (req, res) => {
-=======
-     body: { title, description }
-   } = req;
-   try {
-     await Video.findOneAndUpdate({ _id: id }, { title, description });
-     res.redirect(routes.videoDetail(id));
-   } catch (error) {
-     res.redirect(routes.home);
-   }
- };
+export const postRegisterView = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    video.views += 1;
+    video.save();
+    res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
 
- export const deleteVideo = async (req, res) => {
->>>>>>> c39c480fc514d388b6ed570473c3f213b351da86
+export const deleteVideo = async (req, res) => {
   const {
     params: { id }
   } = req;
