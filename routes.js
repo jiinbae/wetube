@@ -28,6 +28,10 @@ const FB_CALLBACK = "/auth/facebook/callback";
 const KT = "/auth/kakaotalk";
 const KT_CALLBACK = "/oauth";
 
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+const ADD_COMMENT = "/:id/comment";
+
 const routes = {
     home: HOME,
     join: JOIN,
@@ -53,9 +57,9 @@ const routes = {
             return VIDEO_DETAIL;
         }
     },
-    editVideo: (id) => {
-        if(id){
-            return `/videos/${id}/edit`
+    editVideo: id => {
+        if (id) {
+            return `/videos/${id}/edit`;
         } else {
             return EDIT_VIDEO;
         }
@@ -73,7 +77,10 @@ const routes = {
       facebook: FB,
       facebookCallback: FB_CALLBACK,
       kakaotalk: KT,
-      kakaotalkCallback: KT_CALLBACK
+      kakaotalkCallback: KT_CALLBACK,
+      api: API,
+      registerView: REGISTER_VIEW,
+      addComment: ADD_COMMENT
 };
 
 export default routes;

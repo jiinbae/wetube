@@ -7,8 +7,8 @@ import {
     githubLoginCallback,
     facebookLoginCallback,
     kakaoLoginCallback
-} from "./controllers/userController.js";
-import routes from "./routes.js";
+} from "./controllers/userController";
+import routes from "./routes";
 
 passport.use(User.createStrategy());
 
